@@ -1,0 +1,70 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon";
+
+const features = [
+  {
+    title: "AI First",
+    description:
+      "State of the Art AI integrated to make you 10x faster on building performant apps",
+    icon: "bx:bxs-bot",
+  },
+  {
+    title: "Drag and Drop web components",
+    description:
+      "Use out of box Components or build your own components using solidjs",
+    icon: "bx:bxs-briefcase",
+  },
+  {
+    title: "Crafted for everyone",
+    description:
+      "Appsify gives you flexibility to use low code or go 🔥 with complete code, gives flexibility to everyone.",
+    icon: "bx:bxs-window-alt",
+  },
+  {
+    title: "Deployments",
+    description:
+      "View, manage, and deploy your applications to edge directly from Appsify",
+    icon: "bx:bxs-data",
+  },
+  {
+    title: "Broad Integration",
+    description: "Appsify supports Any REST API and is backend agnostic.",
+    icon: "bx:bxs-bot",
+  },
+  {
+    title: "Community",
+    description:
+      "Appsify is built by performance nerds and is completely open source project.",
+    icon: "bx:bxs-user",
+  },
+];
+---
+
+<div class="mt-16 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Everything you need to build an App
+  </h2>
+  <p class="text-lg mt-4 text-slate-600 dark:text-slate-400">
+    Appsify comes with batteries included. Built with state-of-the-art tools and
+    with AI first mindset.
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+          <Icon class="text-white" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <p class="text-slate-500 mt-2 leading-relaxed dark:text-slate-400">
+            {item.description}
+          </p>
+        </div>
+      </div>
+    ))
+  }
+</div>

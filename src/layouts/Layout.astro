@@ -1,0 +1,70 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "@components/footer.astro";
+import Navbar from "@components/navbar/navbar.astro";
+import "@fontsource-variable/inter/index.css";
+
+export interface Props {
+  title: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const resolvedImageWithDomain = new URL(
+  "/opengraph.jpg",
+  Astro.site
+).toString();
+
+const { title } = Astro.props;
+
+const makeTitle = title
+  ? title + " | " + "Appsify"
+  : "Appsify - Headless AI First Low Code App Builder";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <SEO
+      title={makeTitle}
+      description="Appsify is a headless AI first low code app builder."
+      canonical={canonicalURL}
+      twitter={{
+        creator: "@sai_vishwak_k",
+        site: "@sai_vishwak_k",
+        card: "summary_large_image",
+      }}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: `Appsify - Headless AI First Low Code App Builder"`,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "Appsify Homepage Screenshot",
+        },
+      }}
+    />
+  </head>
+  <body>
+    <div class="dark:bg-slate-950 dark:text-white min-h-screen">
+      <Navbar />
+      <slot />
+      <Footer />
+      <style is:global>
+        /* Improve Page speed */
+        /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+        img {
+          content-visibility: auto;
+        }
+      </style>
+    </div>
+  </body>
+</html>

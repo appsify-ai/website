@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://appsify.ai/sitemap-index.xml
